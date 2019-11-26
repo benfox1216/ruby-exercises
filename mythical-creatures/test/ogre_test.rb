@@ -1,3 +1,4 @@
+gem 'minitest', '~> 5.2'
 require 'minitest/autorun'
 require 'minitest/pride'
 require_relative '../lib/ogre'
@@ -95,7 +96,7 @@ class OgreTest < Minitest::Test
     skip
     ogre = Ogre.new('Brak')
     human = Human.new
-    
+
     6.times do
       ogre.encounter(human)
     end
