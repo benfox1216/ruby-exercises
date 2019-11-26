@@ -1,8 +1,10 @@
 class Dragon
-  attr_reader
+  attr_reader :name, :color, :rider
 
-  def initialize
-
+  def initialize(name, color, rider)
+    @name = name
+    @color = color
+    @rider = rider
   end
-  
+
 end
