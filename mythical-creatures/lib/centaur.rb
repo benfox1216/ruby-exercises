@@ -1,9 +1,41 @@
 class Centaur
-  attr_reader :name, :string2
+  attr_reader :name, :breed, :shoot, :run
 
-  def initialize(name, string2)
+  def initialize(name, breed = "")
     @name = name
-    @string2 = string2
+    @breed = breed
+    @shots = 0
+    @has_run = false
+    @cranky = false
+    @standing = true
   end
 
+  def shoot
+    if @shots < 2
+      @shots +=1
+      "Twang!!!"
+    else
+      @cranky = true
+      "NO!"
+    end
+  end
+
+  def run
+    @has_run = true
+
+    if @cranky == true
+      "NO!"
+    else
+      @cranky = true
+      "Clop clop clop clop!!!"
+    end
+  end
+
+  def cranky?
+    return @cranky
+  end
+
+  def standing?
+    return @standing
+  end
 end
