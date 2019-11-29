@@ -56,13 +56,11 @@ class CentaurTest < Minitest::Test
   end
 
   def test_when_standing_it_will_not_sleep
-    skip
     centaur = Centaur.new("George","Palomino")
     assert_equal "NO!", centaur.sleep
   end
 
   def test_after_laying_down_it_is_not_standing
-    skip
     centaur = Centaur.new("George","Palomino")
     centaur.lay_down
     refute centaur.standing?
@@ -70,28 +68,24 @@ class CentaurTest < Minitest::Test
   end
 
   def test_it_can_sleep_when_laying_down
-    skip
     centaur = Centaur.new("George","Palomino")
     centaur.lay_down
     refute_equal "NO!", centaur.sleep
   end
 
   def test_when_laying_down_it_cannot_shoot_a_bow
-    skip
     centaur = Centaur.new("George","Palomino")
     centaur.lay_down
     assert_equal "NO!", centaur.shoot
   end
 
   def test_when_laying_down_it_cannot_run
-    skip
     centaur = Centaur.new("George","Palomino")
     centaur.lay_down
     assert_equal "NO!", centaur.run
   end
 
   def test_it_can_stand_up
-    skip
     centaur = Centaur.new("George","Palomino")
     centaur.lay_down
     centaur.stand_up
@@ -99,7 +93,6 @@ class CentaurTest < Minitest::Test
   end
 
   def test_after_sleeping_it_is_no_longer_cranky
-    skip
     centaur = Centaur.new("George","Palomino")
 
     centaur.shoot
@@ -120,18 +113,21 @@ class CentaurTest < Minitest::Test
   end
 
   def test_becomes_rested_after_drinking_a_potion
-    skip
-    # your code here
+    centaur = Centaur.new("George","Palomino")
+    centaur.drink_potion
+    refute centaur.cranky?
   end
 
   def test_can_only_drink_potion_while_standing
-    skip
-    # your code here
+    centaur = Centaur.new("George","Palomino")
+    centaur.drink_potion
+
   end
 
   def test_gets_sick_if_drinks_potion_while_rested
-    skip
-    # your code here
-  end
+    centaur = Centaur.new("George","Palomino")
+    centaur.drink_potion
 
+    assert centaur.is_sick?
+  end
 end
