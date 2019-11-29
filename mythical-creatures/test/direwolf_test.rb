@@ -2,6 +2,7 @@ gem 'minitest', '~> 5.2'
 require "minitest/autorun"
 require "minitest/pride"
 require_relative '../lib/direwolf'
+require_relative '../lib/stark'
 
 class DirewolfTest < Minitest::Test
 
@@ -12,8 +13,6 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_default_home_is_beyond_the_wall_and_can_have_another_name
-    skip
-
     wolf = Direwolf.new('Lady')
 
     assert_equal 'Beyond the Wall', wolf.home
@@ -21,8 +20,6 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_default_size_is_massive
-    skip
-
     wolf = Direwolf.new('Ghost')
 
     assert_equal 'Massive', wolf.size
@@ -30,8 +27,6 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_can_have_another_home_or_size
-    skip
-
     wolf = Direwolf.new('Shaggydog', "Winterfell", "Smol Pupper")
 
     assert_equal "Shaggydog", wolf.name
@@ -40,8 +35,6 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_starks_are_in_winterfell_by_default
-    skip
-
     wolf = Direwolf.new('Summer', 'Winterfell')
     stark = Stark.new('Bran')
 
@@ -50,8 +43,6 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_starts_off_with_no_Starks_to_protect
-    skip
-
     wolf = Direwolf.new('Nymeria')
     stark = Stark.new('Arya')
 
@@ -62,8 +53,6 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_protects_stark_kids
-    skip
-
     wolf = Direwolf.new('Nymeria', 'Riverlands')
     stark = Stark.new('Arya', 'Riverlands')
 
@@ -75,7 +64,6 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_can_only_protect_stark_kids_if_home_and_location_match
-    skip
 
     wolf = Direwolf.new('Ghost')
     stark = Stark.new('John', "King's Landing")
