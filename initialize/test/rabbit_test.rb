@@ -18,7 +18,7 @@ class RabbitTest < Minitest::Test
     rita = Rabbit.new({name: "Rita", num_syllables: 2})
     roberto = Rabbit.new({name: "Roberto", num_syllables: 3})
     assert_equal "Ralph", ralph.name
-    assert_equal "Rita Rabbit", rita.name
+    assert_equal "Rita", rita.name
     assert_equal "Roberto", roberto.name
   end
 end
