@@ -9,7 +9,25 @@ class Direwolf
   end
 
   def protects (stark)
-    @starks_to_protect << stark
+    if @home == stark.location && @starks_to_protect.count < 2
+      @starks_to_protect << stark
+      stark.safe = true
+      stark.house_words = "The North Remembers"
+    end
   end
 
+  def hunts_white_walkers?
+    if @starks_to_protect.count == 0
+      true
+    end
+  end
+
+  def leaves(stark)
+    if @starks_to_protect.include?(stark) == true
+      @starks_to_protect.clear
+      stark.safe = false
+    else
+      stark
+    end
+  end
 end

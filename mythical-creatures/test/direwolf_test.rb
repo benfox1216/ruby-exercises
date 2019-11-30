@@ -64,7 +64,6 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_can_only_protect_stark_kids_if_home_and_location_match
-
     wolf = Direwolf.new('Ghost')
     stark = Stark.new('John', "King's Landing")
 
@@ -75,8 +74,6 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_direwolf_can_only_protect_two_starks_at_a_time
-    skip
-
     summer_wolf = Direwolf.new('Summer', "Winterfell")
     lady_wolf = Direwolf.new('Lady', "Winterfell")
     sansa_stark = Stark.new('Sansa')
@@ -99,8 +96,6 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_starks_start_off_unsafe
-    skip
-
     stark = Stark.new('John', "The Wall")
 
     refute stark.safe?
@@ -108,8 +103,6 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_protected_status_changes_once_protected
-    skip
-
     wolf = Direwolf.new('Nymeria', "Winterfell")
     arya_stark = Stark.new('Arya')
     sansa_stark = Stark.new('Sansa')
@@ -123,16 +116,12 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_hunts_white_walkers
-    skip
-
     wolf = Direwolf.new('Nymeria', "Winterfell")
 
     assert wolf.hunts_white_walkers?
   end
 
   def test_hunts_white_walkers_but_not_if_protecting_starks
-    skip
-
     wolf = Direwolf.new('Nymeria', "Winterfell")
     stark = Stark.new('Sansa')
 
@@ -141,8 +130,6 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_wolves_can_leave_and_stop_protecting_starks
-    skip
-
     summer_wolf = Direwolf.new('Summer', "Winterfell")
     lady_wolf = Direwolf.new('Lady', "Winterfell")
     sansa_stark = Stark.new('Sansa')
@@ -160,8 +147,6 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_if_stark_not_protected_when_direwolf_leaves_then_that_stark_is_the_return_value
-    skip
-
     summer_wolf = Direwolf.new('Summer', "Winterfell")
     lady_wolf = Direwolf.new('Lady', "Winterfell")
     sansa_stark = Stark.new('Sansa')
@@ -174,7 +159,7 @@ class DirewolfTest < Minitest::Test
 
     expected = lady_wolf.leaves(rickon_stark)
 
-    assert_instance_of expected, Stark
-    assert_equal expected.name, 'Rickon'
+    assert_instance_of Stark, expected
+    assert_equal 'Rickon', expected.name
   end
 end
