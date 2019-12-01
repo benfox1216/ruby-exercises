@@ -15,15 +15,14 @@ class SortByTest < Minitest::Test
   def test_sort_alphabetically_by_last_letter
     things = ["pill", "box", "glass", "water", "sponge"]
     sorted = things.sort_by do |thing|
-      # Your code goes here
+      thing.slice(-1)
     end
     assert_equal ["sponge", "pill", "water", "glass", "box"], sorted
   end
 
   def test_sort_by_distance
-    skip
     distances = ["1cm", "9cm", "30cm", "4cm", "2cm"]
-    # Your code goes here
+    
     assert_equal ["1cm", "2cm", "4cm", "9cm", "30cm"], sorted
   end
 
