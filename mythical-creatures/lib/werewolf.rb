@@ -12,7 +12,7 @@ class Werewolf
   end
 
   def human?
-    return @human
+    @human
   end
 
   def change!
@@ -22,11 +22,11 @@ class Werewolf
   end
 
   def wolf?
-    return @wolf
+    @wolf
   end
 
   def hungry?
-    return @hungry
+    @hungry
   end
 
   def consume_victim(victim)
@@ -34,9 +34,9 @@ class Werewolf
       @victims += 1
       @hungry = !@hungry
       victim.status = :dead
-      return @victims
+      @victims
     else
-      return @victims
+      @victims
     end
   end
 end
